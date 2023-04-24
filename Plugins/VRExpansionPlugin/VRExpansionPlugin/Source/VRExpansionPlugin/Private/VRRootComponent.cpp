@@ -472,9 +472,9 @@ void UVRRootComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, 
 	UVRBaseCharacterMovementComponent * CharMove = nullptr;
 
 	// Need these for passing physics updates to character movement
-	if (ACharacter * OwningCharacter = Cast<ACharacter>(GetOwner()))
+	if (IsValid(owningVRChar))
 	{
-		CharMove = Cast<UVRBaseCharacterMovementComponent>(OwningCharacter->GetCharacterMovement());
+		CharMove = Cast<UVRBaseCharacterMovementComponent>(owningVRChar->GetCharacterMovement());
 	}
 
 	if (IsLocallyControlled())
@@ -592,7 +592,14 @@ void UVRRootComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, 
 
 			if (bHadRelativeMovement)
 			{
-				DifferenceFromLastFrame = OffsetComponentToWorld.GetLocation() - LastPosition;
+				if (owningVRChar->bRetainRoomscale)
+				{
+					DifferenceFromLastFrame = OffsetComponentToWorld.GetLocation() - LastPosition;
+				}
+				else
+				{
+					DifferenceFromLastFrame = (curCameraLoc - lastCameraLoc) * owningVRChar->VRProxyComponent->GetComponentScale();
+				}
 				//DifferenceFromLastFrame = (NextTransform.GetLocation() - LastPosition);// .GetSafeNormal2D();
 				DifferenceFromLastFrame.X = FMath::RoundToFloat(DifferenceFromLastFrame.X * 100.f) / 100.f;
 				DifferenceFromLastFrame.Y = FMath::RoundToFloat(DifferenceFromLastFrame.Y * 100.f) / 100.f;

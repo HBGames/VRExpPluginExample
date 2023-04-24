@@ -143,7 +143,7 @@ bool UReplicatedVRCameraComponent::HasTrackingParameters()
 
 void UReplicatedVRCameraComponent::ApplyTrackingParameters(FVector &OriginalPosition)
 {
-	if (bOffsetByHMD)
+	if (bOffsetByHMD || AttachChar && !AttachChar->bRetainRoomscale)
 	{
 		OriginalPosition.X = 0;
 		OriginalPosition.Y = 0;

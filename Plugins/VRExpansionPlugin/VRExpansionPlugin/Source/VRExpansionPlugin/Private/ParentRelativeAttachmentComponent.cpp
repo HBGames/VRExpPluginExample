@@ -113,7 +113,7 @@ void UParentRelativeAttachmentComponent::UpdateTracking(float DeltaTime)
 		FVector curCameraLoc;
 		if (GEngine->XRSystem->GetCurrentPose(IXRTrackingSystem::HMDDeviceId, curRot, curCameraLoc))
 		{
-			if (bOffsetByHMD)
+			if (bOffsetByHMD || (AttachChar && !AttachChar->bRetainRoomscale))
 			{
 				curCameraLoc.X = 0;
 				curCameraLoc.Y = 0;
