@@ -502,7 +502,7 @@ void UVRRootComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, 
 			{
 				if (owningVRChar && owningVRChar->VRReplicatedCamera)
 				{
-					owningVRChar->VRReplicatedCamera->ApplyTrackingParameters(curCameraLoc);
+					owningVRChar->VRReplicatedCamera->ApplyTrackingParameters(curCameraLoc, true);
 				}
 
 				curCameraRot = curRot.Rotator();

@@ -7013,7 +7013,7 @@ void UGripMotionControllerComponent::ApplyTrackingParameters(FVector& OriginalPo
 
 					if (IsValid(AttachChar) && AttachChar->VRReplicatedCamera)
 					{
-						AttachChar->VRReplicatedCamera->ApplyTrackingParameters(curLoc);
+						AttachChar->VRReplicatedCamera->ApplyTrackingParameters(curLoc, true);
 					}
 
 					//curLoc.Z = 0;
