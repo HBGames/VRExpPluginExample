@@ -17,7 +17,7 @@
 //#include "HeadMountedDisplayFunctionLibrary.h"
 #include "Grippables/GrippablePhysicsReplication.h"
 #include "GameplayTagContainer.h"
-#include "XRMotionControllerBase.h"
+// #include "XRMotionControllerBase.h"
 //#include "IHeadMountedDisplay.h"
 
 #include "Chaos/ParticleHandle.h"
@@ -25,6 +25,7 @@
 #include "Chaos/ParticleHandle.h"
 #include "PhysicsProxy/SingleParticlePhysicsProxy.h"
 #include "PBDRigidsSolver.h"
+#include "XRMotionControllerBase.h"
 
 #if WITH_EDITOR
 #include "Editor/UnrealEd/Classes/Editor/EditorEngine.h"

@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.2",
+	"EngineAssociation": "{1E089B20-40DA-A732-73E2-6FB40E59A56D}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -43,23 +43,6 @@
 				"Linux",
 				"Android",
 				"HoloLens"
-			]
-		},
-		{
-			"Name": "OculusVR",
-			"Enabled": true,
-			"SupportedTargetPlatforms": [
-				"Win64",
-				"Android"
-			]
-		},
-		{
-			"Name": "SteamVR",
-			"Enabled": false,
-			"SupportedTargetPlatforms": [
-				"Win32",
-				"Win64",
-				"Linux"
 			]
 		},
 		{

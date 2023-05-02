@@ -113,13 +113,13 @@ void AGrippableActor::PreReplication(IRepChangedPropertyTracker & ChangedPropert
 	}
 #endif
 
-	PRAGMA_DISABLE_DEPRECATION_WARNINGS
-	UBlueprintGeneratedClass* BPClass = Cast<UBlueprintGeneratedClass>(GetClass());
-	if (BPClass != nullptr)
-	{
-		BPClass->InstancePreReplication(this, ChangedPropertyTracker);
-	}
-	PRAGMA_ENABLE_DEPRECATION_WARNINGS
+	// PRAGMA_DISABLE_DEPRECATION_WARNINGS
+	// UBlueprintGeneratedClass* BPClass = Cast<UBlueprintGeneratedClass>(GetClass());
+	// if (BPClass != nullptr)
+	// {
+	// 	BPClass->InstancePreReplication(this, ChangedPropertyTracker);
+	// }
+	// PRAGMA_ENABLE_DEPRECATION_WARNINGS
 }
 
 void AGrippableActor::GatherCurrentMovement()

@@ -24,8 +24,8 @@
 #include "VRGlobalSettings.h"
 #include "Math/DualQuat.h"
 #include "IIdentifiableXRDevice.h" // for FXRDeviceId
-#include "XRMotionControllerBase.h" // for GetHandEnumForSourceName()
-#include "XRDeviceVisualizationComponent.h" // For visualization component
+// #include "XRMotionControllerBase.h" // for GetHandEnumForSourceName()
+// #include "XRDeviceVisualizationComponent.h" // For visualization component
 
 #include "Physics/Experimental/PhysScene_Chaos.h"
 
@@ -36,6 +36,7 @@
 #include "PhysicsEngine/BodySetup.h"
 #include "PhysicsEngine/ConstraintDrives.h"
 #include "PhysicsReplication.h"
+#include "XRMotionControllerBase.h"
 #include "PhysicsEngine/PhysicsAsset.h"
 
 #include "Chaos/ParticleHandle.h"
@@ -4624,15 +4625,15 @@ void UGripMotionControllerComponent::UpdateTracking(float DeltaTime)
 				}
 			}
 
-			// if controller tracking just kicked in or we haven't gotten a valid model yet
-			if (!bTracked && bNewTrackedState && !bHasStartedRendering)
-			{
-				if (VisualizationComponent)
-				{
-					VisualizationComponent->SetIsRenderingActive(true);
-					bHasStartedRendering = true;
-				}
-			}
+			// // if controller tracking just kicked in or we haven't gotten a valid model yet
+			// if (!bTracked && bNewTrackedState && !bHasStartedRendering)
+			// {
+			// 	if (VisualizationComponent)
+			// 	{
+			// 		VisualizationComponent->SetIsRenderingActive(true);
+			// 		bHasStartedRendering = true;
+			// 	}
+			// }
 
 			// This part is deprecated and will be removed in later versions.
 			// If controller tracking just kicked in or we haven't gotten a valid model yet

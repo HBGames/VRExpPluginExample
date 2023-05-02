@@ -3794,7 +3794,8 @@ void UVRCharacterMovementComponent::ClientHandleMoveResponse(const FCharacterMov
 				MoveResponse.ClientAdjustment.NewBaseBoneName,
 				MoveResponse.bHasBase,
 				MoveResponse.ClientAdjustment.bBaseRelativePosition,
-				MoveResponse.ClientAdjustment.MovementMode);
+				MoveResponse.ClientAdjustment.MovementMode,
+				MoveResponse.ClientAdjustment.GravityDirection);
 
 				// #TODO: Epic added rotation adjustment in 5.1
 				//MoveResponse.bHasRotation ? MoveResponse.ClientAdjustment.NewRot : TOptional<FRotator>()
@@ -3815,6 +3816,7 @@ void UVRCharacterMovementComponent::ClientAdjustPositionVR_Implementation
 	bool bHasBase,
 	bool bBaseRelativePosition,
 	uint8 ServerMovementMode,
+	FVector ServerGravityDirection,
 	TOptional<FRotator> OptionalRotation
 )
 {
@@ -3912,7 +3914,7 @@ void UVRCharacterMovementComponent::ClientAdjustPositionVR_Implementation
 	}*/
 
 	// Trigger event
-	OnClientCorrectionReceived(*ClientData, TimeStamp, WorldShiftedNewLocation, NewVelocity, NewBase, NewBaseBoneName, bHasBase, bBaseRelativePosition, ServerMovementMode);
+	OnClientCorrectionReceived(*ClientData, TimeStamp, WorldShiftedNewLocation, NewVelocity, NewBase, NewBaseBoneName, bHasBase, bBaseRelativePosition, ServerMovementMode, ServerGravityDirection);
 
 	// Trust the server's positioning.
 	if (UpdatedComponent)
