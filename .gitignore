@@ -11,3 +11,5 @@ saved/
 *.orig
 *.sln
 *.xlsx
+
+.idea/
